@@ -1,0 +1,3 @@
+[submodule "blockchainbib"]
+	path = blockchainbib
+	url = https://github.com/kernoelpanic/blockchainbib.git
