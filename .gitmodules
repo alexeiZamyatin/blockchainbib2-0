@@ -1,3 +1,6 @@
 [submodule "blockchainbib"]
 	path = blockchainbib
 	url = https://github.com/kernoelpanic/blockchainbib.git
+[submodule "bibliograpy"]
+	path = bibliograpy
+	url = https://github.com/NullHypothesis/bibliograpy.git

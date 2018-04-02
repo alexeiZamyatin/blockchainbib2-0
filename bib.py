@@ -17,14 +17,62 @@ def parseBib(verbose):
         if(verbose == True):
             print("Parsed " + BIBTEXT_FILE + " without errors. Updating " + JSON_FILE + " ... ")
 
+
+        blockchainbib_dict = blockchainbib.entries_dict
+
+        bib_entries = []
+
+        for key, data in blockchainbib_dict.items():
+            
+            publish_info = "Miscellaneous"
+
+            if("journal" in data):
+                publish_info = data["journal"]
+                if("volume" in data):
+                    publish_info += " Vol. " + data["volume"]
+                if("pages" in data):
+                    publish_info += ", p. " + data["pages"]
+
+            if("booktitle" in data):
+                publish_info += " " + data["booktitle"]
+
+            if("publisher" in data):
+                publish_info += " " + data["publisher"]
+
+            if("institution" in data):
+                publish_info += " " + data["institution"]
+
+            if("school" in data):
+                publish_info += " " + data["school"]
+
+            if("organization" in data):
+                publish_info += " " + data["organization"]        
+        
+            data["publish_info"] = publish_info
+
+            bib_entries.append(data)
+
+
+
         with open('data/blockchainbib.json', 'w') as jsonfile:
-            json.dump(blockchainbib.entries_dict, jsonfile)
+            json.dump(bib_entries, jsonfile)
             if(verbose == True):
                 print("Successfully updated " + JSON_FILE)
 
-def readAllBibs():
+def readJsonBib():
     try:
-        blockchainbib = json.load(open(JSON_FILE))
-        return blockchainbib
+        with open(JSON_FILE, 'r') as jsonfile:
+            blockchainbib = json.load(jsonfile)
+            return blockchainbib
     except (Exception):
         return "Error: could not read " + JSON_FILE
+
+
+def readBibtex():
+    print("reading file")
+    try:
+        with open(BIBTEXT_FILE, 'r') as bibfile:
+            blockchainbib = bibfile.read()
+            return blockchainbib
+    except (Exception):
+        return "Error: could not read " + BIBTEXT_FILE

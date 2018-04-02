@@ -1,0 +1,42 @@
+<div id="header-wrapper">
+    <div class="row header" role="navigation">
+        <div class="col-xs-12">
+            <!-- header user and locale -->
+            <div class=" user pull-right">
+
+                <div class="item dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" uib-dropdown-toggle>
+                        <i class="dropdown-icon fa fa-user fa-fw"></i> <i class="dropdown-icon fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-header"><span> {{username}} </span></li>
+                        <!--
+                        <li><a href="main.profile"><i class="fa fa-user fa-fw"></i> <span translate="header.user.PROFILE"></span></a>
+                        </li>
+                        <li><a href="main.settings"><i class="fa fa-gear fa-fw"></i> <span translate="header.user.SETTINGS"></span></a>
+                        </li>
+                        -->
+                        <li><a href="" data-ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> <span>Logout</span></a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </div>
+                <!-- /.dropdown -->
+
+                <script>
+                    $(window).load(function() {
+                        $("body").removeClass("preload");
+                    });
+                </script>
+            </div>
+
+            <div class="meta">
+                <div class="page">{{$root.pageTitle}}</div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

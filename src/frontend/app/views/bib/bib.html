@@ -1,0 +1,105 @@
+<div class="row-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Blockchain Bibliography</h2>
+        </div>
+    </div>
+
+<!--
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group has-feedback">
+                    <label for="search" class="control-label">Seach for Title, Authors, BibtexID, ...</label>
+                    <input id ="search" type="text" class="form-control" placeholder="Seach for Title, Authors, BibtexID, ..."
+                           data-ng-model="vm.searchText" autofocus/>
+                    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    <div class="col-md-8">
+        <div class="row-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div class="col-md-12 small-bot-buffer">
+                        <div class="col-md-6">
+                            <div class="form-group has-feedback">
+                                <label for="query" class="control-label">Seach for Title, Authors, BibtexID, ...</label>
+                                <input id ="query" type="text" class="form-control" placeholder="Seach for Title, Authors, BibtexID, ..."
+                                       data-ng-model="query" autofocus/>
+                                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 hidden-sm hidden-xs">
+                        <div class="col-md-5">
+                            <a data-ng-click="vm.order('title')">Title</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'title'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <a data-ng-click="vm.order('author')">Author</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'author'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <a data-ng-click="vm.order('year')">Year</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'year'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 hidden-md hidden-lg">
+
+                        <div class="col-xs-2">
+                            <label>Sort by</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <a data-ng-click="vm.order('title')" data-ng-class="{'bold': vm.predicate === 'title'}">Title</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'title'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a data-ng-click="vm.order('author')"
+                               data-ng-class="{'bold': vm.predicate === 'author'}"> Author</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'author'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a data-ng-click="vm.order('year')"
+                               data-ng-class="{'bold': vm.predicate === 'year'}"> Year</a>
+                            <span class="fa" data-ng-show="vm.predicate === 'year'"
+                                  data-ng-class="{'fa-caret-up' : vm.reverse, 'fa-caret-down': !vm.reverse}"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default small-margin-bottom"
+                             data-ng-repeat="bib in vm.bibs |orderBy:vm.predicate:vm.reverse |filter:query">
+                            <div class="panel-body clearfix small-padding">
+                                <div class="col-lg-4 form-control-static">
+                                    <b>{{bib.title}}</b>
+                                </div>
+                                <div class="col-lg-4 form-control-static">
+                                    <i>{{bib.author}}</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-ng-show="university && vm.lectures.length <= 0" class="panel panel-default">
+                <div class="panel-body">
+                    <p data-translate="VIEWS.LECTURE_CATALOGUE.MESSAGES.NO_LECTURES" class="red"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

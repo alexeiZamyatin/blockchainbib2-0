@@ -1,0 +1,26 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar">
+        <li class="sidebar-main">
+            <a ng-click="toggleSidebar()">
+                <span>Smart Car Factory</span>
+                <span class="menu-icon glyphicon glyphicon-transfer"></span>
+            </a>
+        </li>
+        <div data-ng-if="username=='factory' && port">
+
+
+            <li class="sidebar-title"><span>NAVIGATION</span></li>
+            <li class="sidebar-list" ui-sref-active="active">
+                <a ui-sref="main.dashboard"><span>Dashboard</span> <span class="menu-icon fa fa-tachometer"></span></a>
+            </li>
+            <li class="sidebar-list" ui-sref-active="active">
+                <a ui-sref="main.orderComponents"><span>Komponenten Bestellen</span> <span
+                        class="menu-icon fa fa-plus"></span></a>
+            </li>
+        </div>
+    </ul>
+</div>
+
+
+
+

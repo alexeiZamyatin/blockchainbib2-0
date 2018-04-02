@@ -1,0 +1,20 @@
+<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+  <!-- Sidebar -->
+  <sidebar></sidebar>
+
+  <!-- Header -->
+  <header></header>
+
+  <!-- Content -->
+  <div id="content-wrapper">
+
+    <div ui-view></div>
+
+  </div>
+
+</div>
+
+<script>
+    $(window).trigger("load");
+</script>
