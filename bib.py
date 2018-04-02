@@ -1,7 +1,16 @@
 import bibtexparser
-from bibtexparser.bparser import BibTexParser
+from bibtexparser.bparser import BibTexParser, as_text
+from bibtexparser.customization import homogenize_latex_encoding
 import json
 from constants import *
+
+
+
+
+def customizations(record):    
+    record = bibtexparser.customization.convert_to_unicode(record)
+    #record = bibtexparser.customization.author(record)
+    return record
 
 '''
 Parses the blockchaibib/blockchain.bib file and dumps contents 
@@ -12,7 +21,9 @@ def parseBib(verbose):
         if(verbose == True):
             print("Parsing " + BIBTEXT_FILE + " ... ")
         
-        blockchainbib = bibtexparser.load(bibtex_file)
+        parser = BibTexParser()
+        parser.customization = customizations
+        blockchainbib = bibtexparser.load(bibtex_file, parser=parser)
 
         if(verbose == True):
             print("Parsed " + BIBTEXT_FILE + " without errors. Updating " + JSON_FILE + " ... ")
@@ -34,21 +45,26 @@ def parseBib(verbose):
                     publish_info += ", p. " + data["pages"]
 
             if("booktitle" in data):
-                publish_info += " " + data["booktitle"]
+                publish_info += ", " + data["booktitle"]
 
             if("publisher" in data):
-                publish_info += " " + data["publisher"]
+                publish_info += ", " + data["publisher"]
 
             if("institution" in data):
-                publish_info += " " + data["institution"]
+                publish_info += ", " + data["institution"]
 
             if("school" in data):
-                publish_info += " " + data["school"]
+                publish_info += ", " + data["school"]
 
             if("organization" in data):
-                publish_info += " " + data["organization"]        
+                publish_info += ", " + data["organization"]        
         
             data["publish_info"] = publish_info
+
+            if("author" in data):
+                data["author_text"] = as_text(data["author"])
+            else:
+                data["author_text"] = "None Provided"
 
             bib_entries.append(data)
 
