@@ -9,6 +9,7 @@ from constants import *
 
 def customizations(record):    
     record = bibtexparser.customization.convert_to_unicode(record)
+    # record = bibtexparser.customization.homogenize_latex_encoding
     #record = bibtexparser.customization.author(record)
     return record
 
@@ -21,7 +22,7 @@ def parseBib(verbose):
         if(verbose == True):
             print("Parsing " + BIBTEXT_FILE + " ... ")
         
-        parser = BibTexParser()
+        parser = BibTexParser(common_strings=True)
         parser.customization = customizations
         blockchainbib = bibtexparser.load(bibtex_file, parser=parser)
 
