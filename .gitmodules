@@ -6,4 +6,4 @@
 	url = https://github.com/NullHypothesis/bibliograpy.git
 [submodule "blockchainbib_mirror"]
 	path = blockchainbib_mirror
-	url = ssh://git@gitlab.sba-research.org:3022/aljosha/blockchainbib_mirror.git
+	url = https://gitlab.sba-research.org/aljosha/blockchainbib_mirror.git
