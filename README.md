@@ -21,7 +21,7 @@ Improved version of the Blocks & Chains Bibliography from https://github.com/ker
  #### Install
  * Install python 3.6
  * Install pip: ```sudo apt-get install python3-pip```
- * Install flask: ```sudo pip install flask```
+ * Install flask and other dependencies: ```sudo pip install flask flask_cors bibtexparser```
  
  ##### Run
  * Go to root folder
