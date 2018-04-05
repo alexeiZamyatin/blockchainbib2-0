@@ -1,16 +1,11 @@
 <div class="row-fluid">
 
-    <div class="col-md-8 hidden-xs">
-        <div class="row">
-            <div class="profile-header-container">
-
-            </div>
-        </div>
+    <div class="col-md-12 col-lg-8 hidden-xs">
         <div class="row">
             <div class="col-lg-12">
 
                 <h1 class="page-header">
-                    <div class="profile-header-img">
+                    <div class="profile-header-img white">
                         <img class="img-circle" src="images/cryptos.png"/>
                         Blockchain Bibliography
                     </div>
@@ -34,7 +29,7 @@
             </div>
         </div>
     -->
-    <div class="col-md-8 hidden-xs">
+    <div class="col-md-12 col-lg-8 hidden-xs">
         <div class="row-fluid">
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
@@ -52,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12 col-lg-8">
         <div class="row-fluid">
             <div class="panel panel-default">
                 <div class="panel-heading clearfix">
@@ -121,13 +116,7 @@
                              data-ng-repeat="bib in filteredBibs = (vm.bibs |orderBy:vm.predicate:vm.reverse |filter:query)">
                             <div class="panel-body clearfix small-padding">
                                 <div class="col-lg-12 form-control-static no-margin-bottom">
-                                    <b>{{bib.title}}</b>
-                                    <span class="btn-group-sm pull-right">
-                                        <a target="_blank" href="{{bib.url}}" class="btn btn-primary btn-sm">PDF</a>
-                                        <a target="_blank" href="bibtex.html#{{bib.ID}}" type="button"
-                                           class="btn btn-default btn-sm">BIB</a>
-                                    </span>
-
+                                        <b>{{bib.title}}</b>
                                 </div>
                                 <div class="col-lg-12 no-margin-top">
                                     {{bib.author}}
@@ -135,6 +124,11 @@
                                     <i>{{bib.publish_info}}</i>
                                     <br/>
                                     <b>{{bib.year}}</b>
+                                    <span class="btn-group-sm pull-right">
+                                            <a target="_blank" href="{{bib.url}}" class="btn btn-primary btn-sm">PDF</a>
+                                            <a target="_blank" href="bibtex.html#{{bib.ID}}" type="button"
+                                               class="btn btn-default btn-sm">BIB</a>
+                                        </span>
                                 </div>
                             </div>
                         </div>

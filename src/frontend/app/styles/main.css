@@ -2,6 +2,15 @@
 /**
  * Profile image component
  */
+
+ body, html{
+     height: 100%;
+     background-color: #003E74 !important;     
+ }
+.wrapper{
+    height: 100%;
+    overflow: hidden;     
+ }
 .profile-header-container{
     margin: 0 auto;
     text-align: center;
@@ -10,7 +19,6 @@
 .profile-header-img > img.img-circle {
     width: 120px;
     height: 120px;
-    border: 2px solid #000000;
 }
 
 .profile-header {
@@ -62,7 +70,7 @@ canvas {
     bottom: 0; }
 
 .blue-background{
-    background-color: #2d3e63 ;
+    background-color: #003E74 !important;
 }
 
 .no-background{

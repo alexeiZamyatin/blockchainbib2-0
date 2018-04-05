@@ -56,7 +56,6 @@ body {
     #content-wrapper {
         position: inherit;
         padding: 0 30px;
-        border-left: 1px solid #e7e7e7;
     }
     #header-wrapper .row.header {
         margin: 0 -30px;
