@@ -60,6 +60,9 @@ def parseBib(verbose):
             if("organization" in data):
                 publish_info += ", " + data["organization"]        
         
+            if("howpublished" in data):
+                 publish_info += ", " + data["howpublished"]    
+
             data["publish_info"] = publish_info
 
             if("author" in data):
