@@ -33,8 +33,14 @@
          * Configuration needed for sorting lectures
          * @type {string}
          */
-        vm.predicate =  '!!year';
+        vm.predicate =  'year';
         vm.reverse = true;
+        vm.choices =['year', 'title', 'author']
+
+        /**
+         * Mobile disclaimer config
+         */
+        vm.showDisclaimer = false
 
         /**
          * Extract all bib entries from backend
