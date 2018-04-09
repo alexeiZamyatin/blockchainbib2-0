@@ -7,7 +7,7 @@ import time
 # automatically serve all files from folder /static at url /
 app = Flask(__name__, static_url_path='')
 
-#CORS(app)
+CORS(app)
 
 
 @app.route('/bib')
