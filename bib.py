@@ -63,7 +63,7 @@ def parseBib(verbose):
             if("howpublished" in data):
                  publish_info += ", " + data["howpublished"]    
 
-            if(!publish_info):
+            if(not publish_info):
                 publish_info = "Miscellaneous"
 
             data["publish_info"] = publish_info
