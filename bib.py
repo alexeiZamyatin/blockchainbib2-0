@@ -13,6 +13,11 @@ def customizations(record):
     #record = bibtexparser.customization.author(record)
     return record
 
+def addCommaIfNeeded(publish_info):
+    if(publish_info):
+        publish_info += ", " 
+    return publish_info
+
 '''
 Parses the blockchaibib/blockchain.bib file and dumps contents 
 in a json file for performance (parsing required only when changes made)
@@ -41,27 +46,35 @@ def parseBib(verbose):
             if("journal" in data):
                 publish_info = data["journal"]
                 if("volume" in data):
+                    publish_info = addCommaIfNeeded(publish_info)
                     publish_info += " Vol. " + data["volume"]
                 if("pages" in data):
-                    publish_info += ", p. " + data["pages"]
+                    publish_info = addCommaIfNeeded(publish_info)
+                    publish_info += "p." + data["pages"]
 
             if("booktitle" in data):
-                publish_info += ", " + data["booktitle"]
+                publish_info = addCommaIfNeeded(publish_info)
+                publish_info +=  data["booktitle"]
 
             if("publisher" in data):
-                publish_info += ", " + data["publisher"]
+                publish_info = addCommaIfNeeded(publish_info)
+                publish_info += data["publisher"]
 
             if("institution" in data):
-                publish_info += ", " + data["institution"]
+                publish_info = addCommaIfNeeded(publish_info)
+                publish_info +=  data["institution"]
 
             if("school" in data):
-                publish_info += ", " + data["school"]
+                publish_info = addCommaIfNeeded(publish_info)
+                publish_info +=  data["school"]
 
             if("organization" in data):
-                publish_info += ", " + data["organization"]        
+                publish_info = addCommaIfNeeded(publish_info)
+                publish_info += data["organization"]        
         
             if("howpublished" in data):
-                 publish_info += ", " + data["howpublished"]    
+                publish_info = addCommaIfNeeded(publish_info)
+                 publish_info += data["howpublished"]    
 
             if(not publish_info):
                 publish_info = "Miscellaneous"
