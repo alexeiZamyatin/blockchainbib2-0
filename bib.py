@@ -36,7 +36,7 @@ def parseBib(verbose):
 
         for key, data in blockchainbib_dict.items():
             
-            publish_info = "Miscellaneous"
+            publish_info = ""
 
             if("journal" in data):
                 publish_info = data["journal"]
@@ -63,13 +63,15 @@ def parseBib(verbose):
             if("howpublished" in data):
                  publish_info += ", " + data["howpublished"]    
 
+            if(!publish_info):
+                publish_info = "Miscellaneous"
+
             data["publish_info"] = publish_info
 
             if("author" in data):
                 data["author_text"] = as_text(data["author"])
             else:
                 data["author_text"] = "None Provided"
-
             bib_entries.append(data)
 
 
