@@ -74,7 +74,7 @@ def parseBib(verbose):
         
             if("howpublished" in data):
                 publish_info = addCommaIfNeeded(publish_info)
-                 publish_info += data["howpublished"]    
+                publish_info += data["howpublished"]    
 
             if(not publish_info):
                 publish_info = "Miscellaneous"
