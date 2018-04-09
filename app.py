@@ -12,7 +12,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/bib')
 def getAllBibs():
-    time.sleep(2)
+    #time.sleep(2)
     return jsonify(bib.readJsonBib())
 
 @app.route('/')
